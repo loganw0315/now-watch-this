@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css';
 import NavBar from './components/NavBar';
 import Home from './pages/home/Home';
+import Lists from './pages/lists/Lists';
 
 function App() {
   const [display, setDisplay] = useState('')
@@ -33,6 +34,9 @@ function App() {
           handleDisplay={handleDisplay}
           handleLogin={handleLogin}/>
           } />
+        <Route path="/lists" element={
+          <Lists />
+        }/>
         </Routes>
       </BrowserRouter>
     </div>

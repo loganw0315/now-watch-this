@@ -65,14 +65,14 @@ export default function SignupForm() {
                 placeholder='Username'
                 />
                 <input 
-                type="text"
+                type="password"
                 name='password'
                 onChange={formik.handleChange}
                 value={formik.values.password}
                 placeholder='Password'
                 />
                 <input 
-                type="text"
+                type="password"
                 name='confirmPassword'
                 onChange={formik.handleChange}
                 value={formik.values.confirmPassword}
