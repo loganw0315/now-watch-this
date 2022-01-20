@@ -1,0 +1,14 @@
+.navbar{
+    background-color: rgb(39, 39, 39);
+    margin:0;
+}
+.navbar nav {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 20px 0 auto;
+}
+.login-btns{
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+}
