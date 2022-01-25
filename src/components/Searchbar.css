@@ -1,0 +1,12 @@
+.searchbar-container{
+    align-self: flex-start;
+    margin-left: 2em;
+}
+
+.searchbar-container form label{
+    color: aliceblue;
+} 
+
+.searchbar-input{
+    margin-left: 5px;
+}

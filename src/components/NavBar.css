@@ -1,11 +1,12 @@
 .navbar{
     background-color: rgb(39, 39, 39);
     margin:0;
+    height: 55px;
+    display: flex;
 }
 .navbar nav {
-    display: flex;
     max-width: 1200px;
-    margin: 0 20px 0 auto;
+    margin: 0;
 }
 .login-btns{
     width: 200px;

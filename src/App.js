@@ -26,6 +26,7 @@ function App() {
       <BrowserRouter>
         <NavBar 
         handleDisplay={handleDisplay}
+        isLoggedIn={isLoggedIn}
         />
         <Routes>
         <Route path="/" element={
