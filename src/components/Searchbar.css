@@ -1,12 +1,64 @@
 .searchbar-container{
     align-self: flex-start;
     margin-left: 2em;
+    max-width: 300px;
 }
 
 .searchbar-container form label{
     color: aliceblue;
+    
 } 
 
 .searchbar-input{
     margin-left: 5px;
+}
+
+.search-results-display{
+    margin-top: 10px;
+    background-color: rgb(122, 122, 122);
+    padding: 10px;
+    max-width: 93%;
+    
+}
+
+.search-result-card{
+    border: 2px solid #000000;
+    padding:5px;
+    
+    overflow-wrap: break-all;
+    margin-bottom: 2px;
+}
+
+.result-title{
+    font-weight: 600;
+}
+
+.search-result-card img{
+    width: 100px;
+    margin-right: auto;
+}
+
+
+.search-result-card button {
+
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 12px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  margin: 5px
 }

@@ -1,13 +1,18 @@
 .navbar{
     background-color: rgb(39, 39, 39);
     margin:0;
-    height: 55px;
+    height: 50px;
     display: flex;
 }
 .navbar nav {
-    max-width: 1200px;
-    margin: 0;
+    display: flex;
+    
 }
+
+.nav-link{
+    color: aliceblue;
+}
+
 .login-btns{
     width: 200px;
     display: flex;

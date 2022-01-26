@@ -1,9 +1,12 @@
 import React from 'react';
 import {Formik, useFormik} from 'formik';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 
 export default function SignupForm() {
+    let navigate = useNavigate();
+
     const initialValues = {
         username: '',
         name: '',
@@ -17,7 +20,8 @@ export default function SignupForm() {
             localStorage.setItem('username', res.data[0][0].username)
             localStorage.setItem('id', res.data[0][0].id)
             localStorage.setItem('name', res.data[0][0].name)
-            
+            navigate('/lists')
+
         })
         .catch((err)=> console.log(err.response.data))
     }

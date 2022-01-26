@@ -1,0 +1,36 @@
+.create-list{
+    min-height: 96vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-list-form{
+    width: 60%;
+    background-color: rgb(78, 78, 78);
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.create-list-form h1{
+    background-color: rgb(109, 108, 108);
+}
+
+.create-list-form form{
+    align-self: center;
+    width:40%;
+    display: flex;
+    flex-direction: column;
+    margin: 20px
+}
+
+.create-list-form form input{
+    margin-bottom: 5px;
+}
+
+.create-list-form form button{
+    width: 50%;
+    align-self: center;
+    margin-top:  5px;
+}

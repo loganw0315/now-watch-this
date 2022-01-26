@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useNavigate } from 'react-router';
 import './App.css';
 import NavBar from './components/NavBar';
 import Home from './pages/home/Home';
 import Lists from './pages/lists/Lists';
+import CreateList from './pages/create-list/CreateList';
+
+
 
 function App() {
   const [display, setDisplay] = useState('')
@@ -14,6 +18,9 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const handleLogin = () => setIsLoggedIn(!isLoggedIn)
 
+  
+
+  //Checks if id exists in local storage
   useEffect(() => {
     if(localStorage.getItem('id')) {
       setIsLoggedIn(true)
@@ -33,10 +40,14 @@ function App() {
           <Home   
           display={display}
           handleDisplay={handleDisplay}
-          handleLogin={handleLogin}/>
+          handleLogin={handleLogin}
+          isLoggedIn={isLoggedIn}/>
           } />
         <Route path="/lists" element={
           <Lists />
+        }/>
+        <Route path="/create-list" element={
+          <CreateList />
         }/>
         </Routes>
       </BrowserRouter>

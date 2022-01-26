@@ -1,8 +1,16 @@
+import { useNavigate } from 'react-router'
 import './Home.css'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 
-export default function Home({display, handleDisplay, handleLogin}) {
+export default function Home({display, handleDisplay, handleLogin, isLoggedIn}) {
+
+    const navigate = useNavigate()
+
+    if(isLoggedIn){
+        navigate('/lists')
+    }
+
     
     return (
         <div className="home">
