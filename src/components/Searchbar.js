@@ -2,10 +2,11 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import './Searchbar.css'
 
-export default function Searchbar() {
+export default function Searchbar({userLists}) {
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResults, setSearchResults] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+    const [showListSelect, setShowListSelect] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -24,7 +25,8 @@ export default function Searchbar() {
     const addHandler = (e) => {
         const mediaIndex = e.target.id
         const media = searchResults[mediaIndex]
-        axios.post('http://localhost:4000/lists', {
+        console.log(media);
+        axios.post('http://localhost:4000/movie', {
             
         })
     }
@@ -32,6 +34,11 @@ export default function Searchbar() {
     const clearInput = () => {
         setSearchTerm('')
     }
+
+    const listSelect = (bool) => {
+        setShowListSelect(bool)
+    }
+    
 
 
     useEffect(() => {
@@ -61,11 +68,23 @@ export default function Searchbar() {
                         <img src={result.image} alt="" />
                         <p className='result-title'>{result.title}</p>
                         <p className='result-description'>{result.description}</p>
-                        <button onClick={addHandler} id={index}>+ Add to List</button>
+                        <button onClick={() => listSelect(true)} id={index}>+ Add to List</button>
                         <button>View Details</button>
                     </div>
                 ))}
                 {isLoading === true && <p>Loading...</p>}
+            </div>
+        }
+        {showListSelect === true && 
+            <div className='list-select-modal'>
+                <div className="list-select-container">
+                    <button onClick={() => listSelect(false)}>X</button>
+                    {userLists.map((list,index) => (
+                        <div className="list-option" key={index}>
+                            <h3 className='list-title' onClick={addHandler}>{list.title}</h3>
+                        </div>
+                    ))}
+                </div>
             </div>
         }
     </div>

@@ -21,10 +21,18 @@ module.exports = {
 
         res.status(200).send('List created')
     },
-    // getLists: async (req,res) => {
-    //     const userId = req.body
-    //     const userLists = await sequelize.query(`
-    //     SELECT * FROM movie_lists
-    //     WHERE `)
-    // }
+    getLists: async (req,res) => {
+        const userId = req.params.id
+        const listData = await sequelize.query(`
+        SELECT * FROM movie_lists m
+        INNER JOIN user_lists l
+        ON l.movie_list_id = m.id
+        INNER JOIN users u
+        ON l.user_id = u.id
+        WHERE u.id = ${userId}
+        `)
+
+        const userLists = listData[0]
+        res.status(200).send(userLists)
+    }
 }
