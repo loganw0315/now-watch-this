@@ -18,7 +18,6 @@ function CreateList() {
     const onSubmit = (values) => {
         axios.post('http://localhost:4000/lists', values)
         .then((res) => {
-            console.log(res.data);
             navigate('/lists')
         })
         

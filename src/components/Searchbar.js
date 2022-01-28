@@ -19,8 +19,11 @@ export default function Searchbar({userLists}) {
         .then((res) => {
             setIsLoading(false)
             setSearchResults(res.data)
-            console.log(res.data);
+            if(!res.ok) {
+                throw new Error(res.statusText)
+              }
         })
+        .catch((error) => console.log(error))
     }
 
     const addHandler = (listId) => {
@@ -33,11 +36,16 @@ export default function Searchbar({userLists}) {
             image_url: media.image,
             listId: listId
         })
+        .then((res) => {if(!res.ok) {
+            throw new Error(res.statusText)
+          }})
+        .catch((error) => console.log(error))
         
     }
     
     const clearInput = () => {
         setSearchTerm('')
+        setIsLoading(false)
     }
 
     const listSelect = (e, bool) => {
@@ -58,13 +66,13 @@ export default function Searchbar({userLists}) {
   return (
     <div className='searchbar-container'>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="search">Search:</label>
             <input 
             className='searchbar-input'
             type="text" 
             id='search'
             onChange={(e) => setSearchTerm(e.target.value)}
             value={searchTerm}
+            placeholder='Search'
             required
             />
             <button type="button" onClick={() => clearInput()}>X</button>

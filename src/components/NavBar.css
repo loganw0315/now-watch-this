@@ -3,18 +3,38 @@
     margin:0;
     height: 50px;
     display: flex;
+    align-content: center;
 }
 .navbar nav {
     display: flex;
-    
 }
 
 .nav-link{
     color: aliceblue;
+    padding: 0;
 }
 
 .login-btns{
     width: 200px;
     display: flex;
     justify-content: space-around;
+}
+
+@media (max-width: 450px){
+    .navbar nav {
+        display: flex;
+        font-size: small;
+    }
+    .navbar{
+        background-color: rgb(39, 39, 39);
+        margin:0;
+        height: 50px;
+        display: flex;
+        align-content: center;
+    }
+    .nav-link{
+        color: aliceblue;
+        padding: 0;
+        margin: 0 5px 0 5px;
+    }
 }

@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 4000;
 
 const {registerUser, loginUser} = require('./login_controller.js')
 const {search} = require('./search_controller.js')
-const {addToLists, getLists} = require('./lists_controller.js');
+const {addToLists, getLists, deleteList} = require('./lists_controller.js');
 const { addMovieToList } = require('./movie_controller.js');
 const { getMovies } = require('./list-movies_controller.js');
 
@@ -23,6 +23,7 @@ app.post('/search', search)
 //Lists endpoints
 app.post('/lists', addToLists)
 app.get('/lists/:id', getLists)
+app.delete('/lists', deleteList)
 //Movie endpoints
 app.post('/movie', addMovieToList)
 //List Movies endpoints

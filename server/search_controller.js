@@ -12,11 +12,12 @@ module.exports = {
             
             searchResults = res.data.results
         })
-
-        const filteredSearchResults = searchResults.filter(result => result.resultType === "Title")
-         
-        console.log(filteredSearchResults);
-        res.status(200).send(filteredSearchResults)
+        if(searchResults){
+            const filteredSearchResults = searchResults.filter(result => result.resultType === "Title")
+            res.status(200).send(filteredSearchResults)
+        } else{
+            res.status(500).send('Results could not be retrieved')
+        }
        
         
     }

@@ -5,7 +5,7 @@ import NavBar from './components/NavBar';
 import Home from './pages/home/Home';
 import Lists from './pages/lists/Lists';
 import CreateList from './pages/create-list/CreateList';
-import ListMovies from './pages/lists/ListMovies';
+import ListMovies from './pages/list-movies/ListMovies';
 import axios from 'axios';
 
 
@@ -59,6 +59,7 @@ function App() {
           } />
         <Route path="/lists" element={
           <Lists 
+          isLoggedIn={isLoggedIn}
           />
         }/>
         <Route path="/create-list" element={

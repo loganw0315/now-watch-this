@@ -1,7 +1,7 @@
 .searchbar-container{
-    align-self: flex-start;
     margin-left: 2em;
     max-width: 300px;
+    max-height: 26px;
 }
 
 .searchbar-container form label{
@@ -9,8 +9,18 @@
     
 } 
 
+.searchbar-container form button{
+    color: aliceblue;
+    background-color: darkgray;
+    text-decoration: none;
+    border: none;
+}
+
 .searchbar-input{
+    box-sizing: border-box;
     margin-left: 5px;
+    padding: 0 ;
+    height: 26px;
 }
 
 .search-results-display{
@@ -97,4 +107,19 @@
 .list-title{
     cursor: pointer;
     border: 2px solid black;
+}
+
+@media (max-width: 450px){
+    .searchbar-input{
+        box-sizing: border-box;
+        margin-left: 5px;
+        padding: 0 ;
+        height: 26px;
+        width: 150px;
+    }
+    .searchbar-container{
+        margin-left: 1em;
+        max-width: 300px;
+        max-height: 26px;
+    }
 }

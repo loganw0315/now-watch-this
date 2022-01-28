@@ -33,5 +33,19 @@ module.exports = {
 
         const userLists = listData[0]
         res.status(200).send(userLists)
+    },
+    deleteList: async (req, res) => {
+        const {listId} = req.body
+        await sequelize.query(`
+        DELETE FROM user_lists
+        WHERE movie_list_id = ${listId}`)
+        await sequelize.query(`
+        DELETE FROM movie_lists
+        WHERE id = ${listId};`)
+        await sequelize.query(`
+        DELETE FROM movie_list_movies
+        WHERE movie_list_id = ${listId};`)
+
+        res.status(200).send(`${listId}`)
     }
 }
