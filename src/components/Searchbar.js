@@ -7,6 +7,7 @@ export default function Searchbar({userLists}) {
     const [searchResults, setSearchResults] = useState([])
     const [isLoading, setIsLoading] = useState(false)
     const [showListSelect, setShowListSelect] = useState(false)
+    const [searchResultIndex, setSearchResultIndex] = useState()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -22,20 +23,27 @@ export default function Searchbar({userLists}) {
         })
     }
 
-    const addHandler = (e) => {
-        const mediaIndex = e.target.id
-        const media = searchResults[mediaIndex]
-        console.log(media);
+    const addHandler = (listId) => {
+        const media = searchResults[searchResultIndex]
+        setShowListSelect(false)
         axios.post('http://localhost:4000/movie', {
-            
+            id: media.id,
+            title: media.title,
+            description: media.description,
+            image_url: media.image,
+            listId: listId
         })
+        
     }
     
     const clearInput = () => {
         setSearchTerm('')
     }
 
-    const listSelect = (bool) => {
+    const listSelect = (e, bool) => {
+        if(bool === true){
+            setSearchResultIndex(e.target.id)
+        }
         setShowListSelect(bool)
     }
     
@@ -68,7 +76,7 @@ export default function Searchbar({userLists}) {
                         <img src={result.image} alt="" />
                         <p className='result-title'>{result.title}</p>
                         <p className='result-description'>{result.description}</p>
-                        <button onClick={() => listSelect(true)} id={index}>+ Add to List</button>
+                        <button onClick={(e) => listSelect(e,true)} id={index}>+ Add to List</button>
                         <button>View Details</button>
                     </div>
                 ))}
@@ -79,9 +87,10 @@ export default function Searchbar({userLists}) {
             <div className='list-select-modal'>
                 <div className="list-select-container">
                     <button onClick={() => listSelect(false)}>X</button>
-                    {userLists.map((list,index) => (
-                        <div className="list-option" key={index}>
-                            <h3 className='list-title' onClick={addHandler}>{list.title}</h3>
+                    {userLists.map((list, index) => (
+                        <div className="list-option" onClick={() => addHandler(list.movie_list_id)} key={index}>
+                            <h3 className='list-title' >{list.title}</h3>
+                            <p>{list.movie_list_id}</p>
                         </div>
                     ))}
                 </div>

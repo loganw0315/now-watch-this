@@ -1,7 +1,7 @@
 const sequelize = require('./sequelize')
 
 module.exports = {
-    addToList: async (req, res) => {
+    addToLists: async (req, res) => {
         const {title, description, privacy, userId} = req.body;
         console.log(userId);
         await sequelize.query(`
@@ -13,7 +13,6 @@ module.exports = {
         SELECT id FROM movie_lists
         WHERE title = '${title}';
         `)
-        console.log(listId[0][0].id);
         await sequelize.query(`
         INSERT INTO user_lists(user_id, movie_list_id)
         VALUES(${userId}, ${listId[0][0].id});

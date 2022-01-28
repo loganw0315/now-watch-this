@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import Home from './pages/home/Home';
 import Lists from './pages/lists/Lists';
 import CreateList from './pages/create-list/CreateList';
+import ListMovies from './pages/lists/ListMovies';
 import axios from 'axios';
 
 
@@ -43,18 +44,18 @@ function App() {
     <div className='App'>
       <BrowserRouter>
         <NavBar 
-        handleDisplay={handleDisplay}
-        handleLogin={handleLogin}
-        isLoggedIn={isLoggedIn}
-        userLists={userLists}
+          handleDisplay={handleDisplay}
+          handleLogin={handleLogin}
+          isLoggedIn={isLoggedIn}
+          userLists={userLists}
         />
         <Routes>
         <Route path="/" element={
           <Home   
-          display={display}
-          handleDisplay={handleDisplay}
-          handleLogin={handleLogin}
-          isLoggedIn={isLoggedIn}/>
+            display={display}
+            handleDisplay={handleDisplay}
+            handleLogin={handleLogin}
+            isLoggedIn={isLoggedIn}/>
           } />
         <Route path="/lists" element={
           <Lists 
@@ -62,6 +63,9 @@ function App() {
         }/>
         <Route path="/create-list" element={
           <CreateList />
+        }/>
+        <Route path="/list-movies" element={
+          <ListMovies />
         }/>
         </Routes>
       </BrowserRouter>

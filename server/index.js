@@ -6,7 +6,10 @@ const PORT = process.env.PORT || 4000;
 
 const {registerUser, loginUser} = require('./login_controller.js')
 const {search} = require('./search_controller.js')
-const {addToList, getLists} = require('./lists_controller.js')
+const {addToLists, getLists} = require('./lists_controller.js');
+const { addMovieToList } = require('./movie_controller.js');
+const { getMovies } = require('./list-movies_controller.js');
+
 
 //Middleware
 app.use(express.json());
@@ -18,7 +21,11 @@ app.post('/login', loginUser)
 //Search endpoints
 app.post('/search', search)
 //Lists endpoints
-app.post('/lists', addToList)
+app.post('/lists', addToLists)
 app.get('/lists/:id', getLists)
+//Movie endpoints
+app.post('/movie', addMovieToList)
+//List Movies endpoints
+app.get('/list-movies/:id', getMovies)
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
