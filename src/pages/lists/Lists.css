@@ -1,8 +1,13 @@
 
+.list-page{
+    color:aliceblue;
+}
+
 .list-card{
     width: 40vw;
     border: 2px solid black;
     margin-left: 10px;
+    background-color: rgb(39, 39, 39);
 }
 
 .delete-confirm-modal{

@@ -6,9 +6,6 @@ import Searchbar from './Searchbar'
 
 export default function NavBar({handleDisplay, isLoggedIn, userLists}) {
       
-    
-   
-
     return (
         <div className='navbar'>
             {isLoggedIn  ? 

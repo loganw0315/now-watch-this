@@ -42,7 +42,7 @@ export default function Lists({isLoggedIn}) {
     
 
     return (
-        <div>
+        <div className="list-page">
             <div className="lists-container">
             <h1>{name}'s Lists</h1>
             {userLists.length > 0 && userLists.map((list) => (
