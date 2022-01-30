@@ -1,8 +1,11 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useNavigate } from "react-router";
 import './Searchbar.css'
 
 export default function Searchbar({userLists}) {
+    const navigate = useNavigate()
+
     const [searchTerm, setSearchTerm] = useState('')
     const [searchResults, setSearchResults] = useState([])
     const [isLoading, setIsLoading] = useState(false)
@@ -54,8 +57,11 @@ export default function Searchbar({userLists}) {
         }
         setShowListSelect(bool)
     }
-    
 
+    const viewMovieDetails = (movieId) => {
+        navigate(`/list-movies?q=${movieId}`)
+    }
+    
 
     useEffect(() => {
          if(searchTerm === ""){
@@ -85,7 +91,7 @@ export default function Searchbar({userLists}) {
                         <p className='result-title'>{result.title}</p>
                         <p className='result-description'>{result.description}</p>
                         <button onClick={(e) => listSelect(e,true)} id={index}>+ Add to List</button>
-                        <button>View Details</button>
+                        <button onClick={() => viewMovieDetails(result.id)}>View Details</button>
                     </div>
                 ))}
                 {isLoading === true && <p>Loading...</p>}

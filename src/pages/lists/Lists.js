@@ -3,29 +3,24 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router";
 import "./Lists.css"
 
-export default function Lists({isLoggedIn}) {
+export default function Lists({isLoggedIn, userLists, updateUserLists}) {
     let navigate = useNavigate();
 
     const name = localStorage.getItem('name')
     const userId = localStorage.getItem('id')
-    const [userLists, setUserLists] = useState([])
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
     const [deleteListId, setDeleteListId] = useState()
-    const [resetLists, setResetLists] = useState(false)
-
-    useEffect(() => {
-      axios.get(`http://localhost:4000/lists/${userId}`)
-        .then((res) => {
-            setUserLists(res.data)
-        })
-        .catch((error) => console.log(error))
-    }, [resetLists]);
 
     useEffect(() => {
         if(!isLoggedIn){
           navigate('/')
         }
-      }, [isLoggedIn]);
+    }, [isLoggedIn]);
+
+    useEffect(() => {
+      updateUserLists(Math.random)
+    }, []);
+    
 
     const viewList = (listId) => {
         navigate(`/list-movies?q=${listId}`)
@@ -36,7 +31,9 @@ export default function Lists({isLoggedIn}) {
         const listId = deleteListId;
         console.log(listId);
         axios.delete(`http://localhost:4000/lists`, {data: {listId: listId}})
-        .then((res) => setResetLists(res.data))
+        .then((res) => {
+            updateUserLists(res.data)
+        })
 
     }
     

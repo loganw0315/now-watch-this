@@ -10,7 +10,9 @@ export default function NavBar({handleDisplay, isLoggedIn, userLists}) {
         <div className='navbar'>
             {isLoggedIn  ? 
                 <>
-                    <Searchbar userLists={userLists}/>
+                    <Searchbar 
+                    userLists={userLists}
+                    />
                     <nav>
                         <Link className='nav-link' to="/lists">My Lists</Link>
                         <Link className='nav-link' to="/create-list">+ Create List</Link>

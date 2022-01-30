@@ -16,6 +16,8 @@ function App() {
 
   const [display, setDisplay] = useState('')
   const [userLists, setUserLists] = useState([])
+  const [resetLists, setResetLists] = useState(false)
+
 
   const handleDisplay = (newDisplay) => {
     setDisplay(newDisplay)
@@ -37,8 +39,11 @@ function App() {
           setUserLists(res.data)
           console.log(`Lists saved: ${res.data[0].title}`);
       })
-  }, []);
+  }, [resetLists]);
   
+  const updateUserLists = (data) => {
+    setResetLists(data)
+  }
 
   return (
     <div className='App'>
@@ -48,18 +53,20 @@ function App() {
           handleLogin={handleLogin}
           isLoggedIn={isLoggedIn}
           userLists={userLists}
-        />
+          />
         <Routes>
         <Route path="/" element={
           <Home   
-            display={display}
-            handleDisplay={handleDisplay}
-            handleLogin={handleLogin}
-            isLoggedIn={isLoggedIn}/>
-          } />
+          display={display}
+          handleDisplay={handleDisplay}
+          handleLogin={handleLogin}
+          isLoggedIn={isLoggedIn}/>
+        } />
         <Route path="/lists" element={
           <Lists 
           isLoggedIn={isLoggedIn}
+          userLists={userLists}
+          updateUserLists={updateUserLists}
           />
         }/>
         <Route path="/create-list" element={
