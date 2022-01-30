@@ -1,3 +1,4 @@
+const { default: axios } = require('axios')
 const sequelize = require('./sequelize')
 
 module.exports = {
@@ -30,6 +31,21 @@ module.exports = {
 
         
     },
+    getMovieDetails: async (req, res) => {
+        const movieId = req.params.id
+        let movieData = ""
+        console.log(movieId);
+        await axios.get(`https://imdb-api.com/en/API/Title/k_i466l60f/${movieId}`).then((res) => {
+            
+            movieData = res.data
+        })
+        if(movieData){
+            console.log(movieData);
+            res.status(200).send(movieData)
+        }else{
+            res.status(500).send('Movie details could not be retrieved')
+        }
+    }
 
 
 }

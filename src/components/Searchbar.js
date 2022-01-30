@@ -59,7 +59,7 @@ export default function Searchbar({userLists}) {
     }
 
     const viewMovieDetails = (movieId) => {
-        navigate(`/list-movies?q=${movieId}`)
+        navigate(`/movie?q=${movieId}`)
     }
     
 

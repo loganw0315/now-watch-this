@@ -1,6 +1,8 @@
 
 .list-page{
     color:aliceblue;
+    display: flex;
+    justify-content: center;
 }
 
 .list-card{
@@ -8,6 +10,7 @@
     border: 2px solid black;
     margin-left: 10px;
     background-color: rgb(39, 39, 39);
+    margin-top: 10px;
 }
 
 .delete-confirm-modal{

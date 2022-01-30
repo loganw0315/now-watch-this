@@ -2,7 +2,19 @@ const sequelize = require('./sequelize')
 
 module.exports = {
     addToLists: async (req, res) => {
-        const {title, description, privacy, userId} = req.body;
+        let {title, description, privacy, userId} = req.body;
+        if(title.includes("'")){
+            title = title.replaceAll("'", "''")
+        }
+        if(title.includes(";")){
+            title = title.replaceAll(";", "/;")
+        }
+        if(description.includes("'")){
+            description = description.replaceAll("'", "''")
+        }
+        if(description.includes(";")){
+            description = description.replaceAll(";", "/;")
+        }
         console.log(userId);
         await sequelize.query(`
         INSERT INTO movie_lists(title, description, privacy)

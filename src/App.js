@@ -7,6 +7,7 @@ import Lists from './pages/lists/Lists';
 import CreateList from './pages/create-list/CreateList';
 import ListMovies from './pages/list-movies/ListMovies';
 import axios from 'axios';
+import MovieDetails from './pages/movie-details/MovieDetails';
 
 
 
@@ -74,6 +75,9 @@ function App() {
         }/>
         <Route path="/list-movies" element={
           <ListMovies />
+        }/>
+        <Route path="/movie" element={
+          <MovieDetails />
         }/>
         </Routes>
       </BrowserRouter>

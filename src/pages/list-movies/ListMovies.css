@@ -1,3 +1,15 @@
+.list-movies{
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+}
+
 .list-movie-img{
     width: 20vw;
+}
+
+.movie-card{
+    border: 2px solid black;
+    width: 21vw;
+    padding-top: 7px;
 }
