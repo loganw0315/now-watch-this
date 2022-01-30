@@ -11,6 +11,8 @@
     margin-left: 10px;
     background-color: rgb(39, 39, 39);
     margin-top: 10px;
+    overflow-wrap: break-word;
+    padding: 5px;
 }
 
 .delete-confirm-modal{
@@ -27,6 +29,7 @@
     -webkit-transition: 0.5s;
     overflow: auto;
     transition: all 0.3s linear;
+    color: black;
 }
 
 .delete-confirm-container{
@@ -40,3 +43,4 @@
 .delete-confirm-container button{
     margin: 5px;
 }
+

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './NavBar.css'
 import Searchbar from './Searchbar'
 
-export default function NavBar({handleDisplay, isLoggedIn, userLists}) {
+export default function NavBar({handleDisplay, isLoggedIn, userLists, updateUserLists}) {
       
     return (
         <div className='navbar'>
@@ -12,6 +12,7 @@ export default function NavBar({handleDisplay, isLoggedIn, userLists}) {
                 <>
                     <Searchbar 
                     userLists={userLists}
+                    updateUserLists={updateUserLists}
                     />
                     <nav>
                         <Link className='nav-link' to="/lists">My Lists</Link>

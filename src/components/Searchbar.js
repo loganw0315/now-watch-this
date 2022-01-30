@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from "react-router";
 import './Searchbar.css'
 
-export default function Searchbar({userLists}) {
+export default function Searchbar({userLists, updateUserLists}) {
     const navigate = useNavigate()
 
     const [searchTerm, setSearchTerm] = useState('')
@@ -39,7 +39,9 @@ export default function Searchbar({userLists}) {
             image_url: media.image,
             listId: listId
         })
-        .then((res) => {if(!res.ok) {
+        .then((res) => {
+            updateUserLists(Math.random)
+            if(!res.ok) {
             throw new Error(res.statusText)
           }})
         .catch((error) => console.log(error))

@@ -54,6 +54,7 @@ function App() {
           handleLogin={handleLogin}
           isLoggedIn={isLoggedIn}
           userLists={userLists}
+          updateUserLists={updateUserLists}
           />
         <Routes>
         <Route path="/" element={
@@ -74,10 +75,12 @@ function App() {
           <CreateList />
         }/>
         <Route path="/list-movies" element={
-          <ListMovies />
+          <ListMovies 
+          userLists={userLists}/>
         }/>
         <Route path="/movie" element={
-          <MovieDetails />
+          <MovieDetails 
+          />
         }/>
         </Routes>
       </BrowserRouter>
