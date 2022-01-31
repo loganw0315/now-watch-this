@@ -10,11 +10,12 @@
     background-color: rgb(78, 78, 78);
     display: flex;
     flex-direction: column;
-   
+    border: solid;
 }
 
 .create-list-form h1{
     background-color: rgb(109, 108, 108);
+    border-bottom: solid;
 }
 
 .create-list-form form{

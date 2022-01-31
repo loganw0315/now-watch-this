@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom'
 import './NavBar.css'
 import Searchbar from './Searchbar'
+import { useNavigate } from "react-router";
+
 
 const logo = require('../assets/nwt-logo.png')
 
 export default function NavBar({handleDisplay, isLoggedIn, userLists, updateUserLists, logout}) {
+    const navigate = useNavigate()
       
     return (
         <div className='navbar'>
@@ -14,7 +17,7 @@ export default function NavBar({handleDisplay, isLoggedIn, userLists, updateUser
                     userLists={userLists}
                     updateUserLists={updateUserLists}
                     />
-                    <img className='logo' src={logo} alt="logo" />
+                    <img onClick={() => navigate('/')} className='logo' src={logo} alt="logo" />
                     <nav>
                         <Link className='nav-link' to="/lists">My Lists</Link>
                         <Link className='nav-link' to="/create-list">+ Create List</Link>

@@ -22,12 +22,13 @@ module.exports = {
             sequelize.query(`
             INSERT INTO movie_list_movies(movie_list_id, movie_id)
             VALUES (${listId}, '${id}');`)
+            res.status(200).send('Movie added')
         }else{
             res.status(500).send('Movie already on list')
         }
 
     
-        res.status(200).send('Movie added')
+        
 
         
     },

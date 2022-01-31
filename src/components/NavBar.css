@@ -28,7 +28,8 @@
 }
 
 .logo{
-    width: 70px
+    width: 70px;
+    cursor: pointer;
 }
 
 @media (max-width: 450px){
