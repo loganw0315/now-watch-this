@@ -2,7 +2,7 @@ const sequelize = require('./sequelize')
 
 module.exports = {
     addToLists: async (req, res) => {
-        let {title, description, privacy, userId} = req.body;
+        let {title, description, userId} = req.body;
         if(title.includes("'")){
             title = title.replaceAll("'", "''")
         }
@@ -17,8 +17,8 @@ module.exports = {
         }
         console.log(userId);
         await sequelize.query(`
-        INSERT INTO movie_lists(title, description, privacy)
-        VALUES('${title}','${description}','${privacy}');
+        INSERT INTO movie_lists(title, description)
+        VALUES('${title}','${description}');
         ` 
         )
         const listId = await sequelize.query(`

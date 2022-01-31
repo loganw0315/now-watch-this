@@ -45,7 +45,6 @@ export default function Lists({isLoggedIn, userLists, updateUserLists}) {
             {userLists.length > 0 && userLists.map((list) => (
                 <div className="list-card" key={list.movie_list_id}>
                     <h2>{list.title}</h2>
-                    <p>{list.privacy}</p>
                     <p className="list-card-desc">{list.description}</p>
                     <div className="btn-container">
                         <button onClick={() => {setShowDeleteConfirm(true); setDeleteListId(list.movie_list_id)}}>Delete List</button>

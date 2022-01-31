@@ -10,7 +10,6 @@ function CreateList() {
     const initialValues = {
         title: "",
         description: "",
-        privacy: "",
         userId: userId
     }
 
@@ -51,7 +50,7 @@ function CreateList() {
         value={formik.values.description}
         placeholder='Description'
         />
-        <select 
+        {/* <select 
         name="privacy"
         onChange={formik.handleChange}
         value={formik.values.privacy}
@@ -60,7 +59,7 @@ function CreateList() {
             <option value="public" label='Public'/>
             <option value="private" label='Private'/>
             <option value="unlisted" label='Unlisted'/>
-        </select>
+        </select> */}
         <button type='submit' disabled={!formik.isValid}>Submit</button>
       </form>
     </div>
