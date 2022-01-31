@@ -7,5 +7,19 @@
   background-color: rgb(41, 4, 4);
 }
 
+button{
+  color: black;
+  background-color: darkgray;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+
+}
+
+.btn-container{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
 
 

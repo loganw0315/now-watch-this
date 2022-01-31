@@ -14,6 +14,7 @@
     background-color: darkgray;
     text-decoration: none;
     border: none;
+    border-radius: 0 5px 5px 0;
 }
 
 .searchbar-input{
@@ -21,7 +22,9 @@
     margin-left: 5px;
     padding: 0 ;
     height: 26px;
+    border-radius: 5px 0 0 5px;
 }
+
 
 .search-results-display{
     margin-top: 10px;
@@ -90,7 +93,7 @@
 }
 
 .list-select-container{
-    background-color: #fefefe;
+    background-color: rgb(39, 39, 39);
     margin: auto;
     padding: 20px;
     border-radius: 4px;
@@ -106,6 +109,7 @@
 
 .list-title{
     cursor: pointer;
+    background-color: aliceblue;
     border: 2px solid black;
 }
 
@@ -119,7 +123,10 @@
     }
     .searchbar-container{
         margin-left: 1em;
-        max-width: 300px;
+        width: 172.433px;
         max-height: 26px;
+        overflow: visible;
     }
+    
+    
 }

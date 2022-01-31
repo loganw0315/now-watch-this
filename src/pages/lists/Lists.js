@@ -35,7 +35,6 @@ export default function Lists({isLoggedIn, userLists, updateUserLists}) {
             
             updateUserLists(res.data)
         })
-
     }
     
 
@@ -48,8 +47,10 @@ export default function Lists({isLoggedIn, userLists, updateUserLists}) {
                     <h2>{list.title}</h2>
                     <p>{list.privacy}</p>
                     <p className="list-card-desc">{list.description}</p>
-                    <button onClick={() => viewList(list.movie_list_id)}>View List</button>
-                    <button onClick={() => {setShowDeleteConfirm(true); setDeleteListId(list.movie_list_id)}}>Delete List</button>
+                    <div className="btn-container">
+                        <button onClick={() => {setShowDeleteConfirm(true); setDeleteListId(list.movie_list_id)}}>Delete List</button>
+                        <button onClick={() => viewList(list.movie_list_id)}>View List</button>
+                    </div>
                 </div>
             ))}
             {showDeleteConfirm && 

@@ -45,6 +45,16 @@ module.exports = {
         }else{
             res.status(500).send('Movie details could not be retrieved')
         }
+    },
+    removeMovieFromList: async (req, res) => {
+        const {movieId, listId} = req.body
+
+        await sequelize.query(`
+        DELETE FROM movie_list_movies
+        WHERE movie_list_id = ${listId}
+        AND movie_id = '${movieId}'`)
+        
+        res.status(200).send('Movie has been removed from list')
     }
 
 

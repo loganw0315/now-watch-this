@@ -2,8 +2,9 @@ import React from 'react';
 import {useFormik} from 'formik'
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import './LoginForm.css'
 
-export default function LoginForm({handleLogin, }) {
+export default function LoginForm({handleLogin, handleDisplay}) {
     let navigate = useNavigate();
     const initialValues = {
     username: "",
@@ -41,23 +42,24 @@ export default function LoginForm({handleLogin, }) {
 
     return (
     
-    <div>
-        <form onSubmit={formik.handleSubmit}>
-            <input
-                type="text"
-                name="username"
-                onChange={formik.handleChange}
-                value={formik.values.username}
-                placeholder='Username'
-             />
-            <input
-                type="password"
-                name="password"
-                onChange={formik.handleChange}
-                value={formik.values.password}
-                placeholder='Password'
-             />
-            <button type='submit' disabled={!formik.isValid}>Submit</button>
-        </form>
+    <div className='form-modal'>
+      <form className='form-container' onSubmit={formik.handleSubmit}>
+        <button type='button' onClick={() => handleDisplay("")} className='close-modal-btn'>X</button>
+        <input
+            type="text"
+            name="username"
+            onChange={formik.handleChange}
+            value={formik.values.username}
+            placeholder='Username'
+         />
+        <input
+            type="password"
+            name="password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            placeholder='Password'
+         />
+        <button type='submit' disabled={!formik.isValid}>Submit</button>
+      </form>
     </div>);
 }

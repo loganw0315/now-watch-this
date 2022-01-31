@@ -4,6 +4,11 @@
     height: 50px;
     display: flex;
     align-content: center;
+    -webkit-box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.65); 
+    box-shadow: 0px 4px 8px 2px rgba(0,0,0,0.65);
+    position: -webkit-sticky;
+	position: sticky;
+	top: 0;
 }
 .navbar nav {
     display: flex;
@@ -22,6 +27,10 @@
     justify-content: space-around;
 }
 
+.logo{
+    width: 70px
+}
+
 @media (max-width: 450px){
     .navbar nav {
         display: flex;
@@ -33,6 +42,7 @@
         height: 50px;
         display: flex;
         align-content: center;
+        
     }
     .nav-link{
         color: aliceblue;

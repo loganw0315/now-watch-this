@@ -46,6 +46,12 @@ function App() {
     setResetLists(data)
   }
 
+  const logout = () => {
+    localStorage.clear()
+    setIsLoggedIn(false)
+    handleDisplay("")
+  }
+
   return (
     <div className='App'>
       <BrowserRouter>
@@ -55,6 +61,7 @@ function App() {
           isLoggedIn={isLoggedIn}
           userLists={userLists}
           updateUserLists={updateUserLists}
+          logout={logout}
           />
         <Routes>
         <Route path="/" element={
@@ -76,7 +83,9 @@ function App() {
         }/>
         <Route path="/list-movies" element={
           <ListMovies 
-          userLists={userLists}/>
+          userLists={userLists}
+          updateUserLists={updateUserLists}
+          />
         }/>
         <Route path="/movie" element={
           <MovieDetails 

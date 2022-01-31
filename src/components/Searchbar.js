@@ -106,7 +106,6 @@ export default function Searchbar({userLists, updateUserLists}) {
                     {userLists.map((list, index) => (
                         <div className="list-option" onClick={() => addHandler(list.movie_list_id)} key={index}>
                             <h3 className='list-title' >{list.title}</h3>
-                            <p>{list.movie_list_id}</p>
                         </div>
                     ))}
                 </div>

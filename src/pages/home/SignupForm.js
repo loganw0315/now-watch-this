@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 
 
-export default function SignupForm( {handleLogin}) {
+export default function SignupForm( {handleLogin, handleDisplay}) {
     let navigate = useNavigate();
 
     const initialValues = {
@@ -53,8 +53,9 @@ export default function SignupForm( {handleLogin}) {
     })
     
     return (
-        <div className="signup-form-modal">
-            <form onSubmit={formik.handleSubmit}>
+        <div className="form-modal">
+            <form className='form-container' onSubmit={formik.handleSubmit}>
+            <button type='button' onClick={() => handleDisplay("")} className='close-modal-btn'>x</button>
                 <input 
                 type="text"
                 name='name'
