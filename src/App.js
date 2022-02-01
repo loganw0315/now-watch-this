@@ -38,7 +38,6 @@ function App() {
     axios.get(`http://localhost:4000/lists/${userId}`)
       .then((res) => {
           setUserLists(res.data)
-          console.log(`Lists saved: ${res.data[0].title}`);
       })
   }, [resetLists]);
   

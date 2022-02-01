@@ -103,6 +103,7 @@ export default function Searchbar({userLists, updateUserLists}) {
             <div className='list-select-modal'>
                 <div className="list-select-container">
                     <button onClick={() => listSelect(false)}>X</button>
+                    <h3 className='list-select-header'>Select list to add to:</h3>
                     {userLists.map((list, index) => (
                         <div className="list-option" onClick={() => addHandler(list.movie_list_id)} key={index}>
                             <h3 className='list-title' >{list.title}</h3>

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router";
 import './ListMovies.css'
 
 
-function ListMovies(userLists, updateUserLists) {
+function ListMovies({userLists, updateUserLists}) {
   const navigate = useNavigate()
   const queryString = useLocation().search
   const queryParams = new URLSearchParams(queryString)
@@ -34,8 +34,7 @@ function ListMovies(userLists, updateUserLists) {
     }})
     .then((res) => {
       updateUserLists(Math.random)
-    }
-    )
+    })
   }
 
     
@@ -43,7 +42,7 @@ function ListMovies(userLists, updateUserLists) {
   return (
     <div className='list-movies'>
         <h1>{listData.title}</h1>
-        {listMovies.length > 0 && listMovies.map((movie)=> (
+        {listMovies.length > 0 ? listMovies.map((movie)=> (
             <div className="movie-card" key={movie.id}>
                 <img className='list-movie-img' src={movie.image_url} alt="movie card" />
                 <h3>{movie.title}</h3>
@@ -52,7 +51,9 @@ function ListMovies(userLists, updateUserLists) {
                   <button onClick={() => removeMovie(movie.id)}>Remove</button>
                 </div>
             </div>  
-        ))}
+        ))
+          : <h3>Use searchbar to add movies or shows to your list</h3>
+        }
     </div>
   )
 

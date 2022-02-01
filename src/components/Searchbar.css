@@ -1,6 +1,6 @@
 .searchbar-container{
     margin-left: 2em;
-    max-width: 225.967px;
+    max-width: 250px;
     max-height: 26px;
 }
 
@@ -104,13 +104,17 @@
     padding: 20px;
     border-radius: 4px;
     max-width: 300px;
-    height: 450px;
+    /* height: 450px; */
 }
 
 .list-select-container button{
     position: relative;
     right: -40%;
     margin-bottom: 10px;
+}
+
+.list-select-header{
+    color: aliceblue;
 }
 
 .list-title{

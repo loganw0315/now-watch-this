@@ -7,6 +7,7 @@ export default function Lists({isLoggedIn, userLists, updateUserLists}) {
     let navigate = useNavigate();
 
     const name = localStorage.getItem('name')
+    const userId = localStorage.getItem('id')
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
     const [deleteListId, setDeleteListId] = useState()
     
@@ -19,6 +20,10 @@ export default function Lists({isLoggedIn, userLists, updateUserLists}) {
 
     useEffect(() => {
       updateUserLists(Math.random)
+    //   axios.get(`http://localhost:4000/user-movies/${userId}`)
+    //   .then((res) => {
+    //       console.log(res.data);
+    //   })
     }, []);
     
 
@@ -32,8 +37,7 @@ export default function Lists({isLoggedIn, userLists, updateUserLists}) {
         console.log(listId);
         axios.delete(`http://localhost:4000/lists`, {data: {listId: listId}})
         .then((res) => {
-            
-            updateUserLists(res.data)
+            updateUserLists(Math.random)
         })
     }
     

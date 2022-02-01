@@ -56,6 +56,21 @@ module.exports = {
         AND movie_id = '${movieId}'`)
         
         res.status(200).send('Movie has been removed from list')
+    },
+    getAllUserMovies: async (req, res) => {
+        const userId = req.params.id
+
+        const movieData = await sequelize.query(`
+        SELECT * FROM movies m
+        INNER JOIN  movie_list_movies mlm
+        ON m.id = mlm.movie_id
+        INNER JOIN user_lists ul
+        ON mlm.movie_list_id = ul.movie_list_id
+        WHERE ul.user_id = ${userId};`)
+
+        const filteredMovieData = movieData[0].map()
+
+        res.status(200).send(movieData)
     }
 
 
