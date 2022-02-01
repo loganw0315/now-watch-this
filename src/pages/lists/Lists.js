@@ -9,7 +9,8 @@ export default function Lists({isLoggedIn, userLists, updateUserLists}) {
     const name = localStorage.getItem('name')
     const userId = localStorage.getItem('id')
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false)
-    const [deleteListId, setDeleteListId] = useState()
+    const [deleteListId, setDeleteListId] = useState(null)
+    const [userMovies, setUserMovies] = useState([])
     
 
     useEffect(() => {
@@ -19,12 +20,17 @@ export default function Lists({isLoggedIn, userLists, updateUserLists}) {
     }, [isLoggedIn]);
 
     useEffect(() => {
-      updateUserLists(Math.random)
-    //   axios.get(`http://localhost:4000/user-movies/${userId}`)
-    //   .then((res) => {
-    //       console.log(res.data);
-    //   })
+        updateUserLists(Math.random)
     }, []);
+
+    useEffect(() => {
+        axios.get(`http://localhost:4000/user-movies/${userId}`)
+        .then((res) => {
+          console.log(res.data);
+          setUserMovies(res.data[0])
+        })
+    }, [userLists]);
+    
     
 
     const viewList = (listId) => {
@@ -49,6 +55,11 @@ export default function Lists({isLoggedIn, userLists, updateUserLists}) {
             {userLists.length > 0 && userLists.map((list) => (
                 <div className="list-card" key={list.movie_list_id}>
                     <h2>{list.title}</h2>
+                    <div className="movie-gallery">
+                        {userMovies.filter(movie => movie.movie_list_id === list.movie_list_id).reverse().map((movie, index) => 
+                            (movie.movie_list_id === list.movie_list_id && index < 6) && <img  className="movie-gallery-img" src={movie.image_url} alt="movie" />
+                        )}
+                    </div>
                     <p className="list-card-desc">{list.description}</p>
                     <div className="btn-container">
                         <button onClick={() => {setShowDeleteConfirm(true); setDeleteListId(list.movie_list_id)}}>Delete List</button>

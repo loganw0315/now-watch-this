@@ -26,11 +26,6 @@ module.exports = {
         }else{
             res.status(500).send('Movie already on list')
         }
-
-    
-        
-
-        
     },
     getMovieDetails: async (req, res) => {
         const movieId = req.params.id
@@ -67,8 +62,6 @@ module.exports = {
         INNER JOIN user_lists ul
         ON mlm.movie_list_id = ul.movie_list_id
         WHERE ul.user_id = ${userId};`)
-
-        const filteredMovieData = movieData[0].map()
 
         res.status(200).send(movieData)
     }
