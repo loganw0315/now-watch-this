@@ -86,12 +86,6 @@ export default function SignupForm( {handleLogin, handleDisplay}) {
                 />
                 <button type='submit' disabled={!formik.isValid}>Submit</button>
             </form>
-            <div>
-                {formik.errors.username ? <div>{formik.errors.username}</div> : null}
-                {formik.errors.name ? <div>{formik.errors.name}</div> : null}
-                {formik.errors.password ? <div>{formik.errors.password}</div> : null}
-                {formik.errors.confirmPassword ? <div>{formik.errors.confirmPassword}</div> : null}
-            </div>
         </div>
     )
 }
